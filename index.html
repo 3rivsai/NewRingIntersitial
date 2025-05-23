@@ -1381,6 +1381,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
+<script>
+(function() {
+  const correctURL = "https://offer.wuzutech.com/wuzutech/herzp1smartring/en/us/v2/checkout?uidsm=506&oidsm=151&affidsm=39&source_id=342&uid=2275&oid=686&affid=342";
+
+  const overrideLinks = () => {
+    document.querySelectorAll('a[href*="v2/checkout"]').forEach(link => {
+      link.setAttribute('href', correctURL);
+      link.onclick = function(e) {
+        e.preventDefault();
+        window.location.href = correctURL;
+      };
+    });
+  };
+
+  const interval = setInterval(overrideLinks, 500);
+  setTimeout(() => clearInterval(interval), 5000);
+})();
+</script>
+
 </body>
 
 
